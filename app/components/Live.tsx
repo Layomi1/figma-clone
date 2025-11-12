@@ -23,7 +23,7 @@ import useInterval from "@/hooks/useInterval";
 const Live = () => {
   const others = useOthers();
 
-  const [{ cursor }, updateMyPresence] = useMyPresence<MyPresence>();
+  const [{ cursor }, updateMyPresence] = useMyPresence<MyPresence>(null);
 
   const [cursorState, setCursorState] = useState<CursorState>({
     mode: CursorMode.Hidden,
@@ -32,6 +32,12 @@ const Live = () => {
   const [reaction, setReaction] = useState<Reaction[]>([]);
 
   const broadcast = useBroadcastEvent();
+
+  useInterval(() => {
+    setReaction((reaction) =>
+      reaction.filter((r) => r.timestamp > Date.now() - 4000)
+    );
+  }, 100);
 
   useInterval(() => {
     if (
