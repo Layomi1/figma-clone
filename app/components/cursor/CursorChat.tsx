@@ -42,10 +42,15 @@ const CursorChat = ({
       {cursorState.mode === CursorMode.Chat && (
         <>
           <CursorSVG color={"#000"} />
-          <div className="absolute left-2 top-5 bg-blue-500 leading-relaxed px-4 py-2 text-sm text-white rounded-[20px]">
+
+          <div
+            className="absolute left-2 top-5 bg-blue-500 leading-relaxed px-4 py-2 text-sm text-white rounded-[20px]"
+            onKeyUp={(e) => e.stopPropagation()}
+          >
             {cursorState.previousMessage && (
               <div>{cursorState.previousMessage}</div>
             )}
+
             <input
               type="text"
               value={cursorState.message}

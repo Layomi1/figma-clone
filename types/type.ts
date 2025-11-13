@@ -3,11 +3,6 @@ import { Gradient, Pattern } from "fabric/fabric-impl";
 
 // export type Cursor = { x: number; y: number } | null;
 
-export type MyPresence = {
-  cursor: { x: number; y: number } | null;
-  message: string | null;
-};
-
 export enum CursorMode {
   Hidden,
   Chat,
