@@ -340,6 +340,7 @@ export const renderCanvas = ({
   canvasObjects,
   activeObjectRef,
 }: RenderCanvas) => {
+  if (!canvasObjects || !fabricRef.current) return;
   // clear canvas
   fabricRef.current?.clear();
 

@@ -70,10 +70,13 @@ export interface CustomFabricObject<T extends fabric.Object>
 }
 
 export type ModifyShape = {
-  canvas: fabric.Canvas;
-  property: string;
-  value: any;
-  activeObjectRef: React.MutableRefObject<fabric.Object | null>;
+  // canvas: fabric.Canvas;
+  // property: string;
+  // value: any;
+  // activeObjectRef: React.MutableRefObject<fabric.Object | null>;
+  // syncShapeInStorage: (shape: fabric.Object) => void;\
+
+  options: fabric.IEvent<fabric.Object>;
   syncShapeInStorage: (shape: fabric.Object) => void;
 };
 
@@ -125,7 +128,7 @@ export type LiveCursorProps = {
 };
 
 export type CanvasMouseDown = {
-  options: fabric.IEvent;
+  options: fabric.IEvent<MouseEvent>;
   canvas: fabric.Canvas;
   selectedShapeRef: any;
   isDrawing: React.MutableRefObject<boolean>;
@@ -133,7 +136,7 @@ export type CanvasMouseDown = {
 };
 
 export type CanvasMouseMove = {
-  options: fabric.IEvent;
+  options: fabric.IEvent<MouseEvent>;
   canvas: fabric.Canvas;
   isDrawing: React.MutableRefObject<boolean>;
   selectedShapeRef: any;
